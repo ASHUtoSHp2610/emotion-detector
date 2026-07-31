@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Application Dashboard</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 50px;">
+    <h2>AI Text Analyzer</h2>
+    
+    <!-- Input Form -->
+    <form action="/predict" method="post">
+        <textarea name="user_input" rows="4" cols="50" placeholder="Enter text for AI analysis..."></textarea>
+        <br><br>
+        <button type="submit">Submit to AI</button>
+    </form>
+
+    <!-- Error Handling -->
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- Prediction Output -->
+    {% if prediction_text %}
+        <h3>Analysis Results:</h3>
+        <p><strong>Your Input:</strong> "{{ original_text }}"</p>
+        <p style="font-size: 1.2em; color: green;"><strong>AI Output:</strong> {{ prediction_text }}</p>
+    {% endif %}
+</body>
+</html>
+
